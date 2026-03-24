@@ -17,10 +17,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint
-    - name: Analysing the code with pylint
-      run: |
-        pylint $(git ls-files '*.py')
+    - run: pip install -r requirements
+    - run: Pylint
+    
